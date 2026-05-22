@@ -7520,32 +7520,29 @@ Error generating stack: `+l.message+`
 <div class="w-full text-center mb-8">
   <p class="text-sm mt-4 whitespace-nowrap" data-loc="client/src/pages/Home.tsx:765">企業向けSMSサービスの最適なソリューション</p>
 </div>
-<div id="footer" class="w-full bg-[#0B0F19] py-8 mt-12 border-t border-slate-800"></div>
+<div class="w-full bg-[#0B0F19] py-10 mt-16 border-t border-slate-800 text-center">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col items-center justify-center">
+        
+        <div class="flex flex-row justify-center items-center gap-6 mb-4 flex-wrap w-full text-center">
+            <a href="privacy-policy.html" class="text-sm text-slate-400 hover:text-white transition-colors">プライバシーポリシー</a>
+            <a href="terms-of-service.html" class="text-sm text-slate-400 hover:text-white transition-colors">利用規約</a>
+            <a href="about-contact.html" class="text-slate-400 hover:text-white text-sm transition-colors">運営会社</a>
+        </div>
+        
+        <div class="mb-3 text-center w-full">
+            <span class="text-sm text-slate-500 block text-center">電気通信事業届出番号：A-06-22502</span>
+        </div>
+        
+        <div class="text-center w-full">
+            <p class="text-sm text-slate-500 m-0 text-center">&copy; 2025 APIXIS MS. All rights reserved.</p>
+        </div>
+
+    </div>
+</div>
 
 <script src="assets/js/vendors/jquery-3.7.1.min.js"></script>
 <script src="assets/js/vendors/bootstrap.bundle.min.js"></script>
 <script src="assets/js/vendors/sal.js"></script>
-
-<script>
-$(function () {
-    // 共通のfooter.htmlを読み込みます
-    $.get("footer.html", "", function(data){
-        var $footerHtml = $(data);
-        
-        // 1. 余計な「今すぐ相談（Cta）」のバナーを削除
-        $footerHtml.filter("section.mt-n10, .cta-wrapper-one").remove();
-        $footerHtml.find("section.mt-n10, .cta-wrapper-one").remove();
-        
-        // 2. 【ここが重要】読み込んだフッターの外枠の列（col）や行（row）を、
-        //    左寄せから「完全に中央揃え」にするためのクラス（d-block text-center w-100）へ強制書き換えします
-        $footerHtml.find(".row, .col-12, .col-md-6").removeClass("text-md-end row").addClass("text-center w-100 d-block mx-auto");
-        $footerHtml.find(".d-flex").removeClass("justify-content-start").addClass("justify-content-center");
-        
-        // 3. 完全に真ん中に寄せた綺麗な5項目を画面にはめ込みます
-        $("#footer").html($footerHtml);
-    }, "text");
-});
-</script>
 
 </body>
 </html>
