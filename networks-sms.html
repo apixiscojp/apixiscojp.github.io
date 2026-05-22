@@ -7536,4 +7536,21 @@ Error generating stack: `+l.message+`
 </div></footer></div></div>
 <script src="/src/main.tsx" type="module"></script>
 <script data-website-id="%VITE_ANALYTICS_WEBSITE_ID%" defer="" src="%VITE_ANALYTICS_ENDPOINT%/umami"></script>
-</body><div data-manus-selector-input="true" id="manus-previewer-root"></div></html>
+          <div id="footer"></div>
+
+<script src="assets/js/vendors/jquery-3.7.1.min.js"></script>
+<script src="assets/js/vendors/bootstrap.bundle.min.js"></script>
+<script src="assets/js/vendors/sal.js"></script>
+
+<script>
+$(function () {
+    // 他のページと完全に同じ仕組みで共通のfooter.htmlをここに合体させます
+    $.get("footer.html", "", function(data){
+        $("#footer").replaceWith(data);
+    }, "text");
+});
+</script>
+
+</body>
+</html>
+
