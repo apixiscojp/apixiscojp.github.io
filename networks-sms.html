@@ -7533,10 +7533,7 @@ Error generating stack: `+l.message+`
   <p class="text-sm text-slate-500 m-0">© 2025 APIXIS MS. All rights reserved.</p>
 </div>
 
-</div></footer></div></div>
-<script src="/src/main.tsx" type="module"></script>
-<script data-website-id="%VITE_ANALYTICS_WEBSITE_ID%" defer="" src="%VITE_ANALYTICS_ENDPOINT%/umami"></script>
-          <div id="footer"></div>
+<div id="footer"></div>
 
 <script src="assets/js/vendors/jquery-3.7.1.min.js"></script>
 <script src="assets/js/vendors/bootstrap.bundle.min.js"></script>
@@ -7544,9 +7541,17 @@ Error generating stack: `+l.message+`
 
 <script>
 $(function () {
-    // 他のページと完全に同じ仕組みで共通のfooter.htmlをここに合体させます
+    // 共通のfooter.htmlを読み込みます
     $.get("footer.html", "", function(data){
-        $("#footer").replaceWith(data);
+        // 1. 読み込んだデータから、フッター部分（HTML構造）を作ります
+        var $footerHtml = $(data);
+        
+        // 2. 【ここが重要】余計な「今すぐ相談（Cta）」のセクションをまるごと削除します
+        $footerHtml.filter("section.mt-n10, .cta-wrapper-one").remove();
+        $footerHtml.find("section.mt-n10, .cta-wrapper-one").remove();
+        
+        // 3. 余計なものを消した、綺麗な5項目（中央寄せ）だけを画面にはめ込みます
+        $("#footer").replaceWith($footerHtml);
     }, "text");
 });
 </script>
